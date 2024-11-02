@@ -1,0 +1,44 @@
+{
+  "bookings": [
+    {
+      "id": "b836",
+      "pickupLocation": "trissur",
+      "dropLocation": "peringottukara",
+      "pickupUptime": "08:00",
+      "pickUpdate": "2024-10-01"
+    }
+  ],
+  "autoBookings": [
+    {
+      "id": "98f5",
+      "pickupLocation": "kakkanad,near Rajagiri college",
+      "dropLocation": "muvattupuzha,Ilahia polytechnic college",
+      "pickupUptime": "09:00",
+      "pickUpdate": "2024-10-04"
+    }
+  ],
+  "logins": [],
+  "users": [
+    {
+      "id": "996c",
+      "username": "Ashik",
+      "email": "ashiknandanan@gmail.com",
+      "phone": "6282720648",
+      "password": "ashik123"
+    },
+    {
+      "id": "4955",
+      "username": "Raheem",
+      "email": "raheemmhd@gmail.com",
+      "phone": "9846238523",
+      "password": "raheem123"
+    },
+    {
+      "id": "fbc5",
+      "username": "Ananthu",
+      "email": "ananthu9526@gmail.com",
+      "phone": "9526972619",
+      "password": "ananthu123"
+    }
+  ]
+}

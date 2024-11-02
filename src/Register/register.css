@@ -1,0 +1,102 @@
+.register-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin: 50px auto;
+    box-sizing: border-box;
+}
+
+
+.register-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+
+.register-input {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.register-input label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.register-input input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+.register-button {
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background: #b38f00;
+}
+.error{
+    color: red;
+}
+
+.login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #007bff;
+}
+
+.login-link a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .register-container {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .register-form h2 {
+        font-size: 20px;
+    }
+
+    .register-input input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .register-button {
+        font-size: 16px;
+        padding: 8px;
+    }
+
+    .login-link {
+        font-size: 12px;
+    }
+}

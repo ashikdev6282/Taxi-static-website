@@ -1,0 +1,181 @@
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 0; /* Increased padding for a spacious feel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px; /* Increased margin for separation */
+}
+
+.footer-logo-img {
+    width: 70px; /* Increased logo size */
+    height: 70px; /* Increased logo size */
+}
+
+.footer-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* More space between columns */
+    width: 100%;
+    margin-bottom: 30px; /* Increased margin for spacing */
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1; /* Allow columns to grow equally */
+    margin: 0 20px; /* Added margin between columns */
+}
+
+.footer-column h5 {
+    margin-bottom: 15px; /* Increased margin for separation */
+    font-size: 18px; /* Increased font size for headings */
+    color: #f0c040; 
+    text-transform: uppercase; /* Uppercase for a modern look */
+}
+
+.footer-column p, .footer-column a {
+    font-size: 15px; /* Slightly larger font size */
+    color: #ccc;
+    margin-bottom: 8px; /* Increased margin for spacing */
+    text-decoration: none;
+    transition: color 0.3s; /* Smooth transition for hover effects */
+}
+
+.footer-column a:hover {
+    color: #f0c040; 
+    text-decoration: underline; /* Added underline effect on hover */
+}
+
+/* Footer bottom section */
+.footer-bottom {
+    text-align: center;
+    font-size: 14px; /* Increased font size */
+    margin-top: 20px;
+    border-top: 1px solid #555;
+    padding-top: 15px; 
+}
+.newsletter-form {
+    display: flex; 
+    align-items: center;
+    gap: 10px; 
+    margin: 20px 0; 
+    padding: 10px; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.newsletter-form input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff; 
+    color: #333; 
+    flex: 1; 
+}
+
+.newsletter-form input[type="submit"] {
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    background-color: #f0c040; 
+    color: #fff; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+.newsletter-form input[type="submit"]:hover {
+    background-color: #e0b030; 
+    transform: translateY(-2px); 
+}
+.footer-gallery {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.gallery-cards {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: center; /* Center the cards */
+    gap: 20px; /* Space between cards */
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight background color for cards */
+    border-radius: 5px; /* Rounded corners */
+    overflow: hidden; /* Hide overflow */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Card shadow */
+    transition: transform 0.3s; /* Smooth hover effect */
+}
+
+.card img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .gallery-cards {
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    .card {
+        width: 80%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-cards {
+        gap: 15px; /* Reduced gap for very small screens */
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .newsletter-form {
+        flex-direction: column; 
+        align-items: stretch;
+    }
+
+    .newsletter-form input[type="email"] {
+        margin-bottom: 10px; 
+    }
+
+    .newsletter-form input[type="submit"] {
+        width: 100%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px; /* Increased gap for mobile spacing */
+    }
+}
