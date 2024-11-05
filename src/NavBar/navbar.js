@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
 import { FaTaxi, FaSearch } from "react-icons/fa";
@@ -18,43 +18,47 @@ const destinationsList = [
     "Kannur",
     "Kozhikode",
     "Kasargod",
-  ];
-   
+];
 
 function Navbar() {
     const navigate = useNavigate();
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
-    const [filteredDestinations, setFilteredDestinations] = useState([]);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
-    const handleLoginclick = () => {
+    const handleLoginclick = (event) => {
+        event.stopPropagation(); // Prevent click from bubbling up to document
+        setIsDropdownOpen(!isDropdownOpen); // Toggle dropdown visibility
+    };
+
+    const closeDropdown = () => {
+        setIsDropdownOpen(false);
+    };
+
+    const gotoMyAccount = () => {
+        closeDropdown();
+        navigate("/myaccount");
+    };
+
+    const gotoLogin = () => {
+        closeDropdown();
         navigate("/login");
     };
 
-    const toggleNav = () => {
-        setIsNavOpen(!isNavOpen);
-    };
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                closeDropdown();
+            }
+        };
 
-    const handleSearchChange = (event) => {
-        const value = event.target.value;
-        setSearchTerm(value);
-        
-       
-        if (value.trim() !== "") {
-            const filtered = destinationsList.filter((destination) =>
-                destination.toLowerCase().includes(value.toLowerCase())
-            );
-            setFilteredDestinations(filtered);
-        } else {
-            setFilteredDestinations([]);
-        }
-    };
-
-    const handleDestinationClick = (destination) => {
-        setSearchTerm(destination); 
-        setFilteredDestinations([]); 
-        console.log("Navigating to:", destination); 
-    };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [dropdownRef]);
 
     return (
         <div className="container">
@@ -67,28 +71,14 @@ function Navbar() {
                         placeholder="Search your destination"
                         aria-label="Search"
                         value={searchTerm}
-                        onChange={handleSearchChange}
+                        onChange={(e) => setSearchTerm(e.target.value)}
                     />
                     <FaSearch className="search-icon" />
-
-                    {filteredDestinations.length > 0 && (
-                        <ul className="destination-list">
-                            {filteredDestinations.map((destination, index) => (
-                                <li
-                                    key={index}
-                                    className="destination-item"
-                                    onClick={() => handleDestinationClick(destination)}
-                                >
-                                    {destination}
-                                </li>
-                            ))}
-                        </ul>
-                    )}
                 </div>
                 <button
                     className="navbar-toggler"
                     type="button"
-                    onClick={toggleNav}
+                    onClick={() => setIsNavOpen(!isNavOpen)}
                     aria-controls="navbarSupportedContent"
                     aria-expanded={isNavOpen}
                     aria-label="Toggle navigation"
@@ -101,42 +91,26 @@ function Navbar() {
                 >
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 centered-nav">
                         <li className="nav-item">
-                            <Link
-                                to="/"
-                                className="nav-link"
-                                style={{ textDecoration: "none", color: "black" }}
-                            >
+                            <Link to="/" className="nav-link" style={{ textDecoration: "none", color: "black" }}>
                                 Home
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link
-                                to="about"
-                                className="nav-link"
-                                style={{ textDecoration: "none", color: "black" }}
-                            >
+                            <Link to="about" className="nav-link" style={{ textDecoration: "none", color: "black" }}>
                                 About
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link
-                                to="cab-booking"
-                                className="nav-link"
-                                style={{ textDecoration: "none", color: "black" }}
-                            >
+                            <Link to="cab-booking" className="nav-link" style={{ textDecoration: "none", color: "black" }}>
                                 CabBooking
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link
-                                to="autobooking"
-                                className="nav-link"
-                                style={{ textDecoration: "none", color: "black" }}
-                            >
+                            <Link to="autobooking" className="nav-link" style={{ textDecoration: "none", color: "black" }}>
                                 AutoBooking
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item" ref={dropdownRef}>
                             <button
                                 type="button"
                                 className="btn btn-primary"
@@ -144,6 +118,16 @@ function Navbar() {
                             >
                                 <strong>Log In</strong>
                             </button>
+                            {isDropdownOpen && (
+                                <ul className="dropdown-menu">
+                                    <li className="dropdown-item" onClick={gotoLogin}>
+                                        Log In
+                                    </li>
+                                    <li className="dropdown-item" onClick={gotoMyAccount}>
+                                        My Account
+                                    </li>
+                                </ul>
+                            )}
                         </li>
                     </ul>
                 </div>

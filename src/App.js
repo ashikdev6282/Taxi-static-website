@@ -9,6 +9,8 @@ import Autobooking from './servic/autobooking';
 import Login from './login/login';
 import Register from './Register/register';
 import About from './About/about';
+import RideHistory from './RideHistory/ridehistory';
+import MyProfile from './MyAccount/myaccount';
 
 function App() {
   return (
@@ -35,6 +37,8 @@ function App() {
                     <Footer />
                 </>
             } />   
+            <Route path='/myaccount' element={<MyProfile />} />
+            <Route path='/ridehistory' element={<RideHistory />} />
         </Routes>
     </div>
   );

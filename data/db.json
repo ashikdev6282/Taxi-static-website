@@ -1,20 +1,23 @@
 {
   "bookings": [
     {
-      "id": "b836",
-      "pickupLocation": "trissur",
-      "dropLocation": "peringottukara",
-      "pickupUptime": "08:00",
-      "pickUpdate": "2024-10-01"
+      "id": "bb83",
+      "email": "ashiknandanan@gmail.com",
+      "pickupLocation": "kakkanad,near Rajagiri college",
+      "dropLocation": "muvattupuzha,Ilahia polytechnic college",
+      "pickupUptime": "02:10",
+      "pickUpdate": "2024-11-08",
+      "date": "2024-11-05T09:25:50.453Z"
     }
   ],
   "autoBookings": [
     {
-      "id": "98f5",
-      "pickupLocation": "kakkanad,near Rajagiri college",
+      "id": "b704",
+      "email": "ashiknandanan@gmail.com",
+      "pickupLocation": "Edappal,Malappuram",
       "dropLocation": "muvattupuzha,Ilahia polytechnic college",
-      "pickupUptime": "09:00",
-      "pickUpdate": "2024-10-04"
+      "pickupUptime": "03:10",
+      "pickUpdate": "2024-11-15"
     }
   ],
   "logins": [],
@@ -39,6 +42,20 @@
       "email": "ananthu9526@gmail.com",
       "phone": "9526972619",
       "password": "ananthu123"
+    },
+    {
+      "id": "2126",
+      "username": "Arjun",
+      "email": "arjun987@gmail.com",
+      "phone": "9823234578",
+      "password": "arjun123"
+    },
+    {
+      "id": "73ea",
+      "username": "Anju",
+      "email": "anjuachu@gmail.com",
+      "phone": "6225452278",
+      "password": "anju123"
     }
   ]
 }

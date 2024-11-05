@@ -1,0 +1,91 @@
+.profile-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.profile-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.profile-info, .profile-management {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 45%;
+}
+
+.profile-info {
+    text-align: left;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-info p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    color: #555;
+}
+
+.referral-message {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 15px;
+}
+
+.profile-management h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.profile-management button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 2px solid black; /* Set border to black */
+    background-color: white; /* Set background color to white */
+    color: black; /* Set text color to black */
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.profile-management button:hover {
+    background-color: black; /* On hover, change background to black */
+    color: white; /* Change text color to white on hover */
+}
+
+/* Logout button specific styles */
+.logout-button {
+    background-color: white; /* White background */
+    color: black; /* Black text color */
+    border: 2px solid black; /* Black border */
+}
+
+.logout-button:hover {
+    background-color: #cc0000; /* Red background on hover */
+    color: white; /* White text color on hover */
+}
+

@@ -122,6 +122,32 @@
 .destination-item:hover {
     background-color: #f0f0f0;
 }
+.dropdown-menu {
+    position: absolute;
+    background-color: hsl(38, 92%, 65%);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 0;
+    z-index: 1000; 
+    list-style-type: none;
+    margin: 0;
+}
+
+.dropdown-item {
+    padding: 10px 20px; 
+    cursor: pointer; 
+    color: #121111; 
+    font-size: 16px; 
+    border-radius: 4px; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+
+.dropdown-item:hover { 
+    color: #0e0e0e; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+}
+
 
 
 /* Media Query for responsiveness */

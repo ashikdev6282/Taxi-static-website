@@ -4,6 +4,7 @@ import Footer from '../footer/footer';
 import axios from 'axios';
 
 function Autobooking() {
+  const [email,setEmail] = useState('');
   const [pickupLocation, setPickupLocation] = useState('');
   const [dropLocation, setDropLocation] = useState('');
   const [pickupUptime, setPickupUptime] = useState('');
@@ -13,13 +14,14 @@ function Autobooking() {
     e.preventDefault();
 
     
-    if (!pickupLocation || !dropLocation || !pickupUptime || !pickUpdate) {
+    if (!email || !pickupLocation || !dropLocation || !pickupUptime || !pickUpdate) {
       alert('Please fill in all the required fields.');
       return;
     }
 
     
     const bookingDetails = {
+      email,
       pickupLocation,
       dropLocation,
       pickupUptime,
@@ -31,7 +33,7 @@ function Autobooking() {
       .post('http://localhost:8000/autoBookings', bookingDetails)
       .then(() => {
         alert('Auto booked successfully!');
-        
+        setEmail('');
         setPickupLocation('');
         setDropLocation('');
         setPickupUptime('');
@@ -49,6 +51,10 @@ function Autobooking() {
         <h1>Auto Booking</h1>
         <div className="card">
           <form onSubmit={handleFormSubmit}>
+            <div className='form-group'>
+              <label htmlFor="email">Email:</label>
+              <input type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            </div>
             <div className="form-group">
               <label htmlFor="pickupLocation">Pickup Location:</label>
               <input type="text" id="pickupLocation"  name="pickupLocation" value={pickupLocation} onChange={(e) => setPickupLocation(e.target.value)} required />

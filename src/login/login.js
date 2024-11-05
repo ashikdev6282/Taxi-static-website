@@ -41,6 +41,7 @@ function Login() {
       .then((response) => {
         const users = response.data;
         const existingUser = users.find((user) => user.email === email);
+        localStorage.setItem('email', email);
 
         if (existingUser) {
 
