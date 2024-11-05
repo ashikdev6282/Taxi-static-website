@@ -54,7 +54,7 @@ function MyProfile() {
 
                 <div className="profile-management">
                     <h3>Management</h3>
-                    <button>Edit Profile</button>
+                    <button onClick={() => navigate('/editprofile')}>Edit Profile</button>
                     <button onClick={() => navigate('/ridehistory')}>Ride History</button>
                     <button>Change Password</button>
                     <button className="logout-button">Log Out</button>

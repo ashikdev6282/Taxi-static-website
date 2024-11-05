@@ -15,6 +15,8 @@ function Register() {
   });
 
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,7 +27,6 @@ function Register() {
     e.preventDefault();
     const { username, email, phone, password, confirmpassword } = formData;
 
-    
     if (!username || !email || !phone || !password || !confirmpassword) {
       setError('Please provide valid details');
       return;
@@ -51,10 +52,8 @@ function Register() {
       return;
     }
 
-    
     const userData = { username, email, phone, password };
 
-    
     axios.post('http://localhost:8000/users', userData)
       .then(() => {
         alert('Registration successful!');
@@ -64,6 +63,14 @@ function Register() {
         console.error('Error registering user:', err);
         setError('An error occurred during registration. Please try again.');
       });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword((prevShowConfirmPassword) => !prevShowConfirmPassword);
   };
 
   return (
@@ -110,32 +117,50 @@ function Register() {
             </div>
             <div className='register-input'>
               <label htmlFor='password'>Password</label>
-              <input
-                type='password'
-                name='password'
-                id='password'
-                placeholder='Password'
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
+              <div style={{ position: 'relative' }}>
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id='password'
+                  name='password'
+                  value={formData.password}
+                  onChange={handleChange}
+                  placeholder='Enter your password'
+                  style={{ paddingRight: '30px' }}
+                  required
+                />
+                <span 
+                  onClick={togglePasswordVisibility}
+                  style={{ position: 'absolute', right: '10px', top: '35%', transform: 'translateY(-50%)', cursor: 'pointer' }}
+                >
+                  {showPassword ? '🙈' : '👁️'}
+                </span>
+              </div>
             </div>
             <div className='register-input'>
               <label htmlFor='confirmpassword'>Confirm Password</label>
-              <input
-                type='password'
-                name='confirmpassword'
-                id='confirmpassword'
-                placeholder='Confirm Password'
-                value={formData.confirmpassword}
-                onChange={handleChange}
-                required
-              />
+              <div style={{ position: 'relative' }}>
+                <input
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  id='confirmpassword'
+                  name='confirmpassword'
+                  value={formData.confirmpassword}
+                  onChange={handleChange}
+                  placeholder='Confirm Password'
+                  style={{ paddingRight: '30px' }}
+                  required
+                />
+                <span 
+                  onClick={toggleConfirmPasswordVisibility}
+                  style={{ position: 'absolute', right: '10px', top: '35%', transform: 'translateY(-50%)', cursor: 'pointer' }}
+                >
+                  {showConfirmPassword ? '🙈' : '👁️'}
+                </span>
+              </div>
             </div>
             {error && <p className="error" style={{ color: 'red' }}>{error}</p>}
             <button type='submit' className='register-button'>Register</button>
             <p className='register-text'>
-              Already have an account? <a href='/login' style={{textDecoration: 'none'}}>Login</a>
+              Already have an account? <a href='/login' style={{ textDecoration: 'none' }}>Login</a>
             </p>
           </form>
         </div>

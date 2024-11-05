@@ -46,7 +46,7 @@ function Navbar() {
         navigate("/login");
     };
 
-    // Close dropdown when clicking outside
+    
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -102,12 +102,12 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <Link to="cab-booking" className="nav-link" style={{ textDecoration: "none", color: "black" }}>
-                                CabBooking
+                                Services
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="autobooking" className="nav-link" style={{ textDecoration: "none", color: "black" }}>
-                                AutoBooking
+                                Contact Us
                             </Link>
                         </li>
                         <li className="nav-item" ref={dropdownRef}>

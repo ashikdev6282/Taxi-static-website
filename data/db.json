@@ -7,7 +7,18 @@
       "dropLocation": "muvattupuzha,Ilahia polytechnic college",
       "pickupUptime": "02:10",
       "pickUpdate": "2024-11-08",
-      "date": "2024-11-05T09:25:50.453Z"
+      "date": "2024-11-05T09:25:50.453Z",
+      "status": "Confirmed"
+    },
+    {
+      "id": "6055",
+      "email": "raheemmhd@gmail.com",
+      "pickupLocation": "Edappal,Malappuram",
+      "dropLocation": "muvattupuzha,Ilahia polytechnic college",
+      "pickupUptime": "17:41",
+      "pickUpdate": "2024-11-14",
+      "date": "2024-11-05T11:06:06.341Z",
+      "status": "Waiting"
     }
   ],
   "autoBookings": [
@@ -17,7 +28,8 @@
       "pickupLocation": "Edappal,Malappuram",
       "dropLocation": "muvattupuzha,Ilahia polytechnic college",
       "pickupUptime": "03:10",
-      "pickUpdate": "2024-11-15"
+      "pickUpdate": "2024-11-15",
+      "status": "Waiting"
     }
   ],
   "logins": [],
@@ -31,7 +43,7 @@
     },
     {
       "id": "4955",
-      "username": "Raheem",
+      "username": "Muhammed Rahey",
       "email": "raheemmhd@gmail.com",
       "phone": "9846238523",
       "password": "raheem123"
@@ -56,6 +68,13 @@
       "email": "anjuachu@gmail.com",
       "phone": "6225452278",
       "password": "anju123"
+    },
+    {
+      "id": "ade5",
+      "username": "ram",
+      "email": "ram@gmail.com",
+      "phone": "9823234578",
+      "password": "ram@123"
     }
   ]
 }

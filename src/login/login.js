@@ -12,6 +12,7 @@ function Login() {
   });
 
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -63,6 +64,10 @@ function Login() {
       });
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
   return (
     <div className='login-container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto' }}>
       <form className='login-form' onSubmit={handleLoginclick}>
@@ -80,14 +85,20 @@ function Login() {
         </div>
         <div className='login-input'>
           <label htmlFor='password'>Password</label>
+          <div style={{ position: 'relative' }}>
           <input
-            type='password'
+            type={showPassword ? 'text' : 'password'}
             id='password'
             name='password'
             onChange={handleChange}
             placeholder='Enter your password'
-            
+            style={{paddingRight:'30px'}} 
           />
+          <span onClick={togglePasswordVisibility}
+          style={{ position: 'absolute', top: '35%', right: '10px', transform: 'translateY(-50%)', cursor: 'pointer' }}>
+            {showPassword ? '🙈' : '👁️'}    
+          </span>
+        </div>
         </div>
         {error && <p className='error' style={{ color: 'red' }}>{error}</p>}
         <button type='submit' className='login-button'>Login</button>
