@@ -101,12 +101,12 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="cab-booking" className="nav-link" style={{ textDecoration: "none", color: "black" }}>
+                            <Link to="services" className="nav-link" style={{ textDecoration: "none", color: "black" }}>
                                 Services
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="autobooking" className="nav-link" style={{ textDecoration: "none", color: "black" }}>
+                            <Link to="contact" className="nav-link" style={{ textDecoration: "none", color: "black" }}>
                                 Contact Us
                             </Link>
                         </li>

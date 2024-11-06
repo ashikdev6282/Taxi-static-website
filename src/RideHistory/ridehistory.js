@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './ridehistory.module.css';
+import { useNavigate } from 'react-router-dom';
 
 function RideHistory() {
     const [rideHistory, setRideHistory] = useState([]);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         const email = localStorage.getItem('email');
@@ -29,6 +31,7 @@ function RideHistory() {
 
     return (
         <div className={styles.rideHistoryContainer}>
+            <button className={styles.backButton} onClick={() => navigate(-1)} style={{backgroundColor: 'hsl(38, 92%, 65%)'}}>← Back</button>
             <h2 className={styles.rideHistoryTitle}>Ride History</h2>
             {rideHistory.length > 0 ? (
                 <ul className={styles.rideHistoryList}>

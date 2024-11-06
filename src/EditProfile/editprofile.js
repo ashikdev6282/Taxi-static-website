@@ -22,21 +22,16 @@ function EditProfile() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            console.log('Form Data:', formData);
             const response = await axios.get(`http://localhost:8000/users?email=${formData.email}`);
             const user = response.data[0];
 
             if (user) {
-                console.log('User found:', user);
-                const updateResponse = await axios.put(`http://localhost:8000/users/${user.id}`, formData);
-                console.log('User updated:', updateResponse.data);
+                await axios.put(`http://localhost:8000/users/${user.id}`, formData);
                 navigate('/myaccount');
             } else {
-                console.error('User not found');
                 setError('User not found');
             }
         } catch (error) {
-            console.error('Error updating user:', error);
             setError('An error occurred while updating user. Please try again.');
         }
     };
@@ -68,6 +63,7 @@ function EditProfile() {
 
     return (
         <div className='editprofile'>
+            <button className="back-button" onClick={() => navigate(-1)} style={{backgroundColor: 'hsl(38, 92%, 65%)'}}>← Back</button>
             <h1>Edit Profile</h1>
             <form onSubmit={handleSubmit}>
                 <label>
@@ -98,7 +94,7 @@ function EditProfile() {
                     />
                 </label>
                 {error && <div className='error'>{error}</div>}
-                <button type="submit">Save Changes</button>
+                <button type="submit" style={{backgroundColor: 'hsl(38, 92%, 65%)'}}>Save Changes</button>
             </form>
         </div>
     );

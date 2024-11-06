@@ -51,7 +51,7 @@ function Home() {
                         <p className="card-text">
                             <small className="text-muted">Updated 20 mins ago</small>
                         </p>
-                        <button className="btn btn-primary mt-3" onClick={AutoBooking}>
+                        <button className="btn mt-3" onClick={AutoBooking}>
                             Book Now
                         </button>
                     </div>

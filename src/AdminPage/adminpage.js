@@ -35,7 +35,7 @@ function AdminPage() {
     fetchAutoBookings();
   }, [navigate]);
 
-  // Function to update the cab booking status
+  
   const updateCabStatus = async (id, status) => {
     const updatedCabBookings = cabBookings.map(booking => 
       booking.id === id ? { ...booking, status } : booking
@@ -44,7 +44,7 @@ function AdminPage() {
     await axios.patch(`http://localhost:8000/bookings/${id}`, { status });
   };
 
-  // Function to update the auto booking status
+  
   const updateAutoStatus = async (id, status) => {
     const updatedAutoBookings = autoBookings.map(booking => 
       booking.id === id ? { ...booking, status } : booking

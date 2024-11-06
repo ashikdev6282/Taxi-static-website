@@ -88,7 +88,7 @@ function Register() {
                 placeholder='Username'
                 value={formData.username}
                 onChange={handleChange}
-                required
+                
               />
             </div>
             <div className='register-input'>
@@ -100,7 +100,7 @@ function Register() {
                 placeholder='Email'
                 value={formData.email}
                 onChange={handleChange}
-                required
+                
               />
             </div>
             <div className='register-input'>
@@ -112,7 +112,7 @@ function Register() {
                 placeholder='Phone Number'
                 value={formData.phone}
                 onChange={handleChange}
-                required
+                
               />
             </div>
             <div className='register-input'>
@@ -126,7 +126,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder='Enter your password'
                   style={{ paddingRight: '30px' }}
-                  required
+                 
                 />
                 <span 
                   onClick={togglePasswordVisibility}
@@ -147,7 +147,7 @@ function Register() {
                   onChange={handleChange}
                   placeholder='Confirm Password'
                   style={{ paddingRight: '30px' }}
-                  required
+                  
                 />
                 <span 
                   onClick={toggleConfirmPasswordVisibility}

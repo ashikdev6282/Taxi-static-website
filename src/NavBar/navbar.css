@@ -65,6 +65,10 @@
     border: none;
 }
 
+.btn:hover {
+    background-color:hsl(38, 92%, 65%); 
+}
+
 .navbar-toggler {
     border: none;
     background-color: transparent;

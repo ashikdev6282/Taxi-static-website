@@ -15,6 +15,8 @@ import EditProfile from './EditProfile/editprofile';
 import AdminLogin from './AdminLogin/adminlogin';
 import AdminNavbar from './AdminNav/adminnav';
 import AdminPage from './AdminPage/adminpage';
+import Services from './ServiceContent/service';
+import ContactUs from './ContactUs/contactus';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -54,7 +56,7 @@ function App() {
                         <Footer />
                     </>
                 } />   
-                <Route path='/myaccount' element={<MyProfile />} />
+                <Route path='/myaccount'   element={<MyProfile />} />
                 <Route path='/editprofile' element={<EditProfile />} />
                 <Route path='/ridehistory' element={<RideHistory />} />
 
@@ -63,6 +65,8 @@ function App() {
                     path="/adminpage" 
                     element={isAdminLoggedIn ? <AdminPage onLogout={handleAdminLogout} /> : <Navigate to="/adminlogin" />} 
                 />
+                <Route path='/services' element={<Services />} />
+                <Route path='/contact' element={<ContactUs />} />
             </Routes>
         </div>
     );
