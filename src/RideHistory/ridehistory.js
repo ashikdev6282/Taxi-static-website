@@ -4,7 +4,8 @@ import styles from './ridehistory.module.css';
 import { useNavigate } from 'react-router-dom';
 
 function RideHistory() {
-    const [rideHistory, setRideHistory] = useState([]);
+    const [cabBookings, setCabBookings] = useState([]);
+    const [autoBookings, setAutoBookings] = useState([]);
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
@@ -16,7 +17,8 @@ function RideHistory() {
                 axios.get(`http://localhost:8000/autoBookings?email=${email}`)
             ])
             .then(([cabResponse, autoResponse]) => {
-                setRideHistory([...cabResponse.data, ...autoResponse.data]);
+                setCabBookings(cabResponse.data);
+                setAutoBookings(autoResponse.data);
             })
             .catch(err => {
                 console.error('Error fetching ride history:', err);
@@ -33,19 +35,39 @@ function RideHistory() {
         <div className={styles.rideHistoryContainer}>
             <button className={styles.backButton} onClick={() => navigate(-1)} style={{backgroundColor: 'hsl(38, 92%, 65%)'}}>← Back</button>
             <h2 className={styles.rideHistoryTitle}>Ride History</h2>
-            {rideHistory.length > 0 ? (
+
+            <h3 className={styles.sectionTitle}>Cab Bookings</h3>
+            {cabBookings.length > 0 ? (
                 <ul className={styles.rideHistoryList}>
-                    {rideHistory.map((ride, index) => (
+                    {cabBookings.map((ride, index) => (
                         <li key={index} className={styles.rideCard}>
                             <p><strong>Pickup Location:</strong> {ride.pickupLocation}</p>
                             <p><strong>Drop Location:</strong> {ride.dropLocation}</p>
                             <p><strong>Pickup Date:</strong> {ride.pickUpdate}</p>
                             <p><strong>Pickup Time:</strong> {ride.pickupUptime}</p>
+                            <p><strong>Status:</strong> {ride.status}</p>
                         </li>
                     ))}
                 </ul>
             ) : (
-                <p className={styles.noHistoryMessage}>No ride history available.</p>
+                <p className={styles.noHistoryMessage}>No cab bookings available.</p>
+            )}
+
+            <h3 className={styles.sectionTitle}>Auto Bookings</h3>
+            {autoBookings.length > 0 ? (
+                <ul className={styles.rideHistoryList}>
+                    {autoBookings.map((ride, index) => (
+                        <li key={index} className={styles.rideCard}>
+                            <p><strong>Pickup Location:</strong> {ride.pickupLocation}</p>
+                            <p><strong>Drop Location:</strong> {ride.dropLocation}</p>
+                            <p><strong>Pickup Date:</strong> {ride.pickUpdate}</p>
+                            <p><strong>Pickup Time:</strong> {ride.pickupUptime}</p>
+                            <p><strong>Status:</strong> {ride.status}</p>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p className={styles.noHistoryMessage}>No auto bookings available.</p>
             )}
         </div>
     );

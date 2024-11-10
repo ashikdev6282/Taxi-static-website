@@ -1,61 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Home() {
     const navigate = useNavigate();
-    const navigates = useNavigate();
-    const TaxiBooking = () => {
-        navigate('/cab-booking');
-    }
-    const AutoBooking = () => {
-        navigates('/autobooking');
-    }
+    const [bookingTypes, setBookingTypes] = useState([]);
+
+    useEffect(() => {
+        const fetchBookingTypes = async () => {
+            try {
+                const response = await axios.get('http://localhost:8000/bookingTypes');
+                setBookingTypes(response.data);
+            } catch (error) {
+                console.error("Error fetching booking types:", error);
+            }
+        };
+        fetchBookingTypes();
+    }, []);
 
     return (
         <div className="container card-container">
             <div className="card-deck">
-                {/* Card 1 */}
-                <div className="card custom-card">
-                    <img 
-                        className="card-img-top" 
-                        src="https://www.shutterstock.com/image-vector/new-york-yellow-taxi-simple-260nw-2235262191.jpg" 
-                        alt="Taxi Booking App" 
-                    />
-                    <div className="card-body">
-                        <h5 className="card-title">Book Your Ride</h5>
-                        <p className="card-text">
-                            Discover the easiest way to book a taxi. Quick, convenient, and reliable rides are just a tap away!
-                        </p>
-                        <p className="card-text">
-                            <small className="text-muted">Updated 10 mins ago</small>
-                        </p>
-                        <button className="btn btn-primary mt-3" onClick={TaxiBooking}>
-                            Book Now
-                        </button>
+                {bookingTypes.map((booking) => (
+                    <div className="card custom-card" key={booking.id}>
+                        <img 
+                            className="card-img-top" 
+                            src={booking.image} 
+                            alt={booking.name} 
+                        />
+                        <div className="card-body">
+                            <h5 className="card-title">{booking.name}</h5>
+                            <p className="card-text">{booking.description}</p>
+                            <p className="card-text">
+                                <small className="text-muted">Updated just now</small>
+                            </p>
+                            <button 
+                                className="btn btn-primary mt-3" 
+                                onClick={() => {
+                                    console.log("naviagting to", booking.route);
+                                    navigate(booking.route)}}
+                            >
+                                Book Now
+                            </button>
+                        </div>
                     </div>
-                </div>
-                
-                {/* Card 2 */}
-                <div className="card custom-card">
-                    <img 
-                        className="card-img-top" 
-                        src="https://media.istockphoto.com/id/1394781305/vector/tuk-tuk-icon-simple-line-element-tuk-tuk-symbol-for-templates-web-design-and-infographics.jpg?s=612x612&w=0&k=20&c=har3yDAiLNjPw-2yOiiqiB8vyQSeYikZgm6FzYmw198=" 
-                        alt="Driver App" 
-                    />
-                    <div className="card-body">
-                        <h5 className="card-title">Become a Driver</h5>
-                        <p className="card-text">
-                            Join our fleet and earn on your schedule. Flexible hours and guaranteed earnings for dedicated drivers.
-                        </p>
-                        <p className="card-text">
-                            <small className="text-muted">Updated 20 mins ago</small>
-                        </p>
-                        <button className="btn mt-3" onClick={AutoBooking}>
-                            Book Now
-                        </button>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
     );

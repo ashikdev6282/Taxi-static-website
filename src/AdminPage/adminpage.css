@@ -24,4 +24,27 @@
     background-color: #4CAF50;
     color: white;
   }
+  .add-booking-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .add-booking-form input,
+  .add-booking-form select,
+  .add-booking-form button {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .add-booking-form button {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .add-booking-form button:hover {
+    background-color: #45a049;
+  }
   

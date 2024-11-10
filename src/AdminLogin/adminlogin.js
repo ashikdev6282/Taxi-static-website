@@ -39,7 +39,7 @@ function AdminLogin({onLogin}) {
       <form className='admin-login-form' onSubmit={handleAdminLogin}>
         <h2>Admin Login</h2>
         <div className='admin-login-input'>
-          <label htmlFor='email'>Email</label>
+          <label htmlFor='email'>Email</label> 
           <input
             type='email'
             id='email'
@@ -47,7 +47,7 @@ function AdminLogin({onLogin}) {
             value={formData.email}
             onChange={handleChange}
             placeholder='Enter admin email'
-            required
+            
           />
         </div>
         <div className='admin-login-input'>
@@ -59,7 +59,7 @@ function AdminLogin({onLogin}) {
             value={formData.password}
             onChange={handleChange}
             placeholder='Enter admin password'
-            required
+            
           />
         </div>
         {error && <p className='error'>{error}</p>}

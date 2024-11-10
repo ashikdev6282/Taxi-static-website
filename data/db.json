@@ -8,7 +8,7 @@
       "pickupUptime": "02:10",
       "pickUpdate": "2024-11-08",
       "date": "2024-11-05T09:25:50.453Z",
-      "status": "Confirmed"
+      "status": "Waiting"
     },
     {
       "id": "6055",
@@ -75,6 +75,22 @@
       "email": "ram@gmail.com",
       "phone": "9823234578",
       "password": "ram@123"
+    }
+  ],
+  "bookingTypes": [
+    {
+      "id": "5af4",
+      "name": "Taxi Booking",
+      "description": "Offers a variety of ride options, including bikes, autos, prime sedans, and prime SUVs. You can book a ride for any distance, duration, or budget. ",
+      "image": "https://images.unsplash.com/photo-1500298281307-dcc46bf727d8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGNhYnxlbnwwfHwwfHx8MA%3D%3D",
+      "route": "/cab-booking"
+    },
+    {
+      "id": "ad9f",
+      "name": "Auto Booking",
+      "description": "A service that offers quick, affordable rides with doorside pickup, live GPS tracking, and 24/7 safety support ",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsUtgZH5s0D-3Cgr8jfpiISaObJgShDqBJSg&s",
+      "route": "autobooking"
     }
   ]
 }
