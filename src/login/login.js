@@ -69,8 +69,8 @@ function Login() {
   };
 
   return (
-    <div className='login-container' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto' }}>
-      <form className='login-form' onSubmit={handleLoginclick}>
+    <div className='login-container fade-in' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: 'auto' }}>
+      <form className='login-form fade-in' onSubmit={handleLoginclick}>
         <h2>Login</h2>
         <div className='login-input'>
           <label htmlFor='email'>Email</label>

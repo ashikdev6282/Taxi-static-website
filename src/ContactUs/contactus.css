@@ -1,4 +1,21 @@
-/* General Styles */
+/* Keyframe for fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Optional slide-up effect */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End position */
+    }
+}
+
+/* Apply fade-in animation to elements with the fade-in class */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards; /* 1s duration, ease-out timing */
+}
+
 .contact-container {
     max-width: 1200px;
     margin: auto;
@@ -6,6 +23,7 @@
     text-align: center;
     color: #fff;
     background-color: #1d1f21;
+    border-radius: 20px;
 }
 
 .contact-title {

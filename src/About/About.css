@@ -1,4 +1,21 @@
-/* About Container */
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Optional: Slide effect */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End position */
+    }
+}
+
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards; 
+}
+
 .about-container {
     padding: 20px;
     max-width: 1200px;

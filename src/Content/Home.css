@@ -1,3 +1,30 @@
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); 
+    }
+}
+
+
+.slide-in {
+    opacity: 0;
+    animation: slideIn 0.8s ease-out forwards;
+}
+
+
 body {
     background-image: url('https://livedemo00.template-help.com/wt_51680/images/bg-image-1.jpg');
     background-size: cover;
@@ -6,13 +33,14 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .card {
     border-radius: 10px;
     overflow: hidden;
     transition: transform 0.2s;
+    animation: fadeIn 0.5s ease-in; /* Apply fade-in animation to each card */
 }
 
 .card:hover {
@@ -24,34 +52,33 @@ body {
     object-fit: cover;
 }
 
-
 .card-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start; 
+    align-items: flex-start;
     margin: 40px auto;
     max-width: 1200px;
-    flex-wrap: wrap; 
-    padding: 0 20px; 
+    flex-wrap: wrap;
+    padding: 0 20px;
 }
-
 
 .card-deck {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
 /* Custom card design */
 .custom-card {
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
-    flex: 1 1 300px; 
-    max-width: 350px; 
-    min-width: 250px; 
+    flex: 1 1 300px;
+    max-width: 350px;
+    min-width: 250px;
+    animation: fadeIn 0.5s ease-in; /* Apply fade-in animation to custom cards */
 }
 
 /* Image styling */
@@ -62,15 +89,12 @@ body {
     border-top-right-radius: 12px;
 }
 
-
 .custom-card .card-body {
     padding: 20px;
 }
 
-
 .custom-card:hover {
     transform: translateY(-10px);
-    
     box-shadow: 0px 16px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -80,23 +104,21 @@ body {
     margin-bottom: 15px;
 }
 
-
 .custom-card .card-text {
     font-size: 14px;
     color: #555;
 }
 
-
 .form-group {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     margin-bottom: 15px;
 }
 
 #autoPickupLocation, #autoDropLocation,
 #cabPickupTime, #cabDropTime {
-    width: 100%; 
-    max-width: 240px; 
+    width: 100%;
+    max-width: 240px;
 }
 
 .form-label {
@@ -114,10 +136,10 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .card-container {
-        margin: 20px; 
+        margin: 20px;
         padding: 0 10px; /* Smaller padding */
     }
-    
+
     .custom-card {
         flex: 1 1 calc(50% - 20px); /* Adjust to allow two cards per row */
         margin-bottom: 20px; /* Space between rows */
@@ -134,10 +156,10 @@ body {
     .custom-card {
         flex: 1 1 100%; /* Full width for small screens */
     }
-    
+
     .card-deck {
-        flex-direction: column; 
-        align-items: center; 
+        flex-direction: column;
+        align-items: center;
     }
 
     #autoPickupLocation, #autoDropLocation,

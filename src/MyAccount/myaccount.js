@@ -37,6 +37,11 @@ function MyProfile() {
             setLoading(false);
         }
     }, []);
+
+    const handleLogOut = () => {
+        localStorage.removeItem('email');
+        navigate('/login');
+    }
         
     if (loading) return <div>Loading...</div>; 
     if (error) return <div>{error}</div>;
@@ -56,8 +61,8 @@ function MyProfile() {
                     <h3>Management</h3>
                     <button onClick={() => navigate('/editprofile')}>Edit Profile</button>
                     <button onClick={() => navigate('/ridehistory')}>Ride History</button>
-                    <button>Change Password</button>
-                    <button className="logout-button">Log Out</button>
+                    <button onClick={() => navigate('/changepassword')}>Change Password</button>
+                    <button className="logout-button" onClick={handleLogOut}>Log Out</button>
                 </div>
             </div>
         </div>

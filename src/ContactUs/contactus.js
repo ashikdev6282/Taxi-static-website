@@ -58,15 +58,17 @@ function ContactUs() {
             setFormData({ fullName: '', email: '', message: '' });
             setTimeout(() => setIsSubmitted(false), 3000); 
         }
+
     };
 
+
     return (
-        <div className="contact-container">
+        <div className="contact-container fade-in">
             <h2 className="contact-title">Contact Us</h2>
             <p className="contact-description">
                 Have questions about our taxi services or need assistance with your booking? Our team is here to help. Reach out to us, and we'll make sure you have a smooth and reliable experience getting where you need to go.
             </p>
-            <div className="contact-content">
+            <div className="contact-content fade-in">
                 <div className="contact-info">
                     <div className="info-item">
                         <span className="info-icon">📍</span>
@@ -90,7 +92,7 @@ function ContactUs() {
                         </div>
                     </div>
                 </div>
-                <div className="contact-form">
+                <div className="contact-form fade-in">
                     <h3>Send Message</h3>
                     <form onSubmit={handleSubmit}>
                         <input

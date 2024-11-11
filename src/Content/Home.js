@@ -20,7 +20,7 @@ function Home() {
     }, []);
 
     return (
-        <div className="container card-container">
+        <div className="container card-container slide-in">
             <div className="card-deck">
                 {bookingTypes.map((booking) => (
                     <div className="card custom-card" key={booking.id}>

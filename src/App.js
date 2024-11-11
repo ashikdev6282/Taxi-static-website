@@ -17,6 +17,7 @@ import AdminNavbar from './AdminNav/adminnav';
 import AdminPage from './AdminPage/adminpage';
 import Services from './ServiceContent/service';
 import ContactUs from './ContactUs/contactus';
+import ChangePassword from './ChangePassword/changepassword';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
                 <Route path='/myaccount'   element={<MyProfile />} />
                 <Route path='/editprofile' element={<EditProfile />} />
                 <Route path='/ridehistory' element={<RideHistory />} />
+                <Route path='/changepassword' element={<ChangePassword />} />
 
                 <Route path='/adminlogin' element={<AdminLogin onLogin={handleAdminLogin} />} />
                 <Route 
